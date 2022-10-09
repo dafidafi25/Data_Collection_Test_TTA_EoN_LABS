@@ -1,5 +1,3 @@
-import json
-
 class Csv_Writter():
     HOURLY = "hourly"
     DAILY = "daily"
