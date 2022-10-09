@@ -99,11 +99,13 @@ if __name__=="__main__":
 
     ## Since we need to get hourly, daily and weekly
     # I decided to get hourly data and calculate average value on daily basis and weekly basis
-    start_date = datetime.date(2022, 1, 1)
+    start_date = datetime.date(2015, 1, 1)
     end_date = datetime.date.today()
     weekly_range = datetime.timedelta(days=7)
     daily_range  = datetime.timedelta(days=1)
     dates = []
+
+    reset_files()
 
     while (start_date <= end_date):
         first_date = start_date 

@@ -35,7 +35,7 @@ class GoogleTrendsAPI():
         # Retrying request, 3 times maximum, with each iteration is delayed 60 seconds
         # 60 Seconds is to get request quota, we can handle this wether delay it
         # Or changing proxy, in here i just delay it
-        while (data.status_code == 429):
+        while (data.status_code == 429) or data.status_code == 500:
             if retry == 3 : break
             print(f'Too Many request on token {time} Retrying number {cnt}...')
             sleep(60)
@@ -86,7 +86,7 @@ class GoogleTrendsAPI():
             cnt = 0 
 
             # Retrying on 60 seconds if google returns too much requests
-            while (result.status_code == 429):
+            while (result.status_code == 429) or result.status_code == 500:
                 if retry == 3 : break
                 print(f'Too Many request on time {time} Retrying number {cnt} ...')
                 sleep(60)
